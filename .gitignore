@@ -1,2 +1,3 @@
 .vagrant/
+notebooks/.ipynb_checkpoints/
 ubuntu-xenial-16.04-cloudimg-console.log
