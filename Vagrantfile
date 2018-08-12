@@ -14,8 +14,14 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/xenial64"
 
+  # Mount shared folder
+  config.vm.synced_folder "notebooks", "/home/vagrant/notebooks"
+
   # Bootstrap VM
   config.vm.provision :shell, :path => "bootstrap.sh"
+
+  # Forward ports for Jupyter notebook
+  config.vm.network :forwarded_port, host: 8888, guest: 8888
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

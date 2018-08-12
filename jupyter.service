@@ -1,0 +1,15 @@
+[Unit]
+Description=Jupyter Notebook
+
+[Service]
+Type=simple
+PIDFile=/run/jupyter.pid
+ExecStart=/home/vagrant/anaconda3/bin/jupyter-notebook --config=/home/vagrant/.jupyter/jupyter_notebook_config.py
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
