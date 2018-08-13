@@ -8,6 +8,15 @@ apt-get install -y --no-install-recommends ubuntu-desktop
 # Install guest additions
 apt-get install -y virtualbox-guest-dkms ruby
 
+# Enable passwordless GUI login for vagrant user
+echo -e "auth    sufficient  pam_succeed_if.so user ingroup nopasswdlogin" >> /etc/pam.d/lightdm
+groupadd -r nopasswdlogin
+gpasswd -a vagrant nopasswdlogin
+# Disable auto screen lock
+# TODO: Make sure you use the right gsettings! anaconda3 version has priority
+#gsettings set org.gnome.desktop.screensaver lock-enabled false
+#gsettings set org.gnome.desktop.screensaver idle-activation-enabled false
+
 # Install Anaconda3
 sudo -u vagrant mkdir /home/vagrant/vagrant-setup/
 wget "https://repo.anaconda.com/archive/Anaconda3-5.2.0-Linux-x86_64.sh" -q -O /home/vagrant/vagrant-setup/Anaconda3.sh
