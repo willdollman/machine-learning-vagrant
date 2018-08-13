@@ -23,6 +23,12 @@ Vagrant.configure("2") do |config|
   # Forward ports for Jupyter notebook
   config.vm.network :forwarded_port, host: 8888, guest: 8888
 
+  # Disable logs for WSL
+  #     https://stackoverflow.com/questions/45773825/vagrant-with-virtualbox-on-wsl-verr-path-not-found
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]
+  end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
