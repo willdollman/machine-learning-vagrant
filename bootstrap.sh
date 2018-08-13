@@ -42,7 +42,7 @@ systemctl restart jupyter.service
 # Install python modules
 sudo -u vagrant -i /home/vagrant/anaconda3/bin/pip install --upgrade pip
 # Install basic version of OpenAI Gym
-sudo -u vagrant -i /home/vagrant/anaconda3/bin/pip install gym
+sudo -u vagrant -i /home/vagrant/anaconda3/bin/pip install gym JSAnimation
 # Install full OpenAI Gym + prereqs
 #apt-get install -y python-dev cmake zlib1g-dev libjpeg-dev xvfb libav-tools xorg-dev python-opengl libboost-all-dev libsdl2-dev swig g++
 #sudo -u vagrant -i /home/vagrant/anaconda3/bin/pip install gym[all]
